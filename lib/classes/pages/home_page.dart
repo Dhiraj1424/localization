@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/classes/language.dart';
+import 'package:localization/main.dart';
 import 'package:localization/router/route_constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -32,7 +33,9 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
               onChanged: (Language? language)  {
-                
+                if(language!=null){
+                  MyApp.setLocale(context, Locale(language.languageCode,''));
+                }
                 
               },
               items: Language.languageList()
